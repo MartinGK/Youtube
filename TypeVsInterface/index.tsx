@@ -5,19 +5,19 @@ import React from "react";
 // example of type alias vs interface
 // ejemplo de type alias vs interface
 
-type TUserProps = {
-    name: string;
-    id: string;
-}
+// type TUserProps = {
+//     name: string;
+//     id: string;
+// }
 
 // interface IUserProps {
 //     name: string;
 //     id: string;
 // }
 
-export default function User({ name, id }: TUserProps) {
-  return <div id={id}>{name}</div>;
-}
+// export default function User({ name, id }: TUserProps) {
+//   return <div id={id}>{name}</div>;
+// }
 
 //----------------------------------------------------------------//
 
@@ -27,14 +27,14 @@ export default function User({ name, id }: TUserProps) {
 //intersections
 //Para type usamos intersecciones
 
-type UserProps = {
-    name: string;
-    id: string;
-}
+// type UserProps = {
+//     name: string;
+//     id: string;
+// }
 
-type AdminProps = UserProps & {
-    role: string;
-}
+// type AdminProps = UserProps & {
+//     role: string;
+// }
 
 // extending
 // para interfaces extendemos
@@ -55,23 +55,24 @@ type AdminProps = UserProps & {
 
 //----------------------------------------------------------------//
 
-//interface can only describe an object
+// interface can only describe an object
 // type alias can describe objects AND everything else (example gratie: primitive values such string, number or boolean)
 
-//las interfaces solo pueden describir objetos.
+// las interfaces solo pueden describir objetos.
 // el alias type puede describir objectos Y todo lo demas (ejemplo: valores primitivos como string, number o boolean)
 
 // | union type
 
 // type Name = string;
-// type Name = string | string[];
+type Name = string | string[];
 
-// const name: Name = 'Martin';
+// const name: Name = ['Martin'];
 
 // interface Name = string; // X
 // interface Name {
 //   name: string;
 // }
+
 
 //----------------------------------------------------------------//
 
@@ -90,13 +91,12 @@ type AdminProps = UserProps & {
 // const guest: GuestProps = {};
 
 // More about utility types here: https://www.typescriptlang.org/docs/handbook/utility-types.html
-
 // Mas sobre utility types aqui: https://www.typescriptlang.org/docs/handbook/utility-types.html
 
 //----------------------------------------------------------------//
 
 // type alias can easily describe tuples - interface can too but only with ugly syntax
-// la palabra reservada type describe facilmente tuplas mientras que interface puede ahcerlo tambien pero con una sintaxis horrible en comparacion.
+// la palabra reservada type describe facilmente tuplas mientras que interface puede hacerlo tambien pero con una sintaxis horrible en comparacion.
 
 // type Address = [number, string];
 
@@ -105,25 +105,23 @@ type AdminProps = UserProps & {
 //     1: string;
 // }
 
-// const address: Address = [1, "string"];
+// const address: Address = [1,"street"];
 
 //----------------------------------------------------------------//
 
 //Extracting type from an object
-//Extrayendo un tipo desde un objecto
+// Extrayendo un tipo desde un objecto
 
 // const project = {
 //   title: "Project 1",
 //   specification: {
 //     areaSize: 100,
 //     rooms: 3,
-//   },
+//   } as const,
 // };
 
 // type Project = typeof project;
 // type Specification = typeof project.specification;
-
-// as const
 
 //----------------------------------------------------------------//
 
@@ -137,7 +135,7 @@ type AdminProps = UserProps & {
 // }
 
 // interface User {
-//     role: string
+//     role: string;
 // }
 
 // multiple declarations make a code smells
@@ -145,7 +143,6 @@ type AdminProps = UserProps & {
 
 // const user: User = {
 //     name: "Martin",
-//     id: "1"
 // }
 
 // type User = {
@@ -201,3 +198,4 @@ type AdminProps = UserProps & {
 
 // type = 4
 // interface = 9
+
